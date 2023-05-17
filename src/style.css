@@ -155,4 +155,10 @@ footer > a {
   font-size: 14px;
   font-family: "Poppins", sans-serif;
   font-weight: 200;
+  text-decoration: none;
+}
+
+.personal-info {
+  font-weight: bolder;
+  font-size: 15px;
 }
