@@ -1,0 +1,158 @@
+body {
+  color: white;
+
+  background: radial-gradient(
+    circle at 1.8% 4.8%,
+    rgb(60, 72, 139) 0%,
+    rgb(33, 51, 97) 90%
+  );
+
+  font-family: "Poppins", sans-serif;
+}
+
+.principal-container {
+  background: radial-gradient(
+    circle at 1.8% 4.8%,
+    rgb(17, 23, 58) 0%,
+    rgb(58, 85, 148) 90%
+  );
+  width: 70%;
+  max-width: 950px;
+  padding: 20px;
+  border-radius: 12px;
+  margin: 50px auto;
+}
+
+img {
+  width: 50px;
+}
+
+h1 {
+  font-size: 40px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 19px;
+  font-weight: 200;
+  text-align: center;
+}
+
+/*h3*/
+.temperature {
+  font-size: 65px;
+  font-weight: 300;
+}
+
+h4 {
+  font-size: 20px;
+  font-weight: 200;
+}
+
+h5 {
+  font-size: 17px;
+  font-weight: 300;
+}
+
+h6 {
+  font-size: 20px;
+  text-align: center;
+  margin: 30px;
+}
+
+p {
+  font-weight: 200;
+}
+
+/* SEARCH BAR - HEADER */
+header {
+  text-align: center;
+  margin: 15px 10px;
+}
+
+#search-city-input,
+#search,
+.current-location {
+  border-radius: 25px;
+  border: 0px solid white;
+  padding: 8px 20px;
+  margin: 14px 5px;
+}
+
+#search-city-input {
+  width: 65%;
+}
+
+#search,
+.current-location {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  color: rgb(5, 5, 58);
+  transition: all 200ms ease-in-out;
+}
+
+#search:hover,
+.current-location:hover {
+  background: linear-gradient(135deg, #5e7496 0%, #c3cfe2 100%);
+  color: white;
+  cursor: pointer;
+}
+
+/* CURRENT WEATHER AREA */
+
+.weather-now-container {
+  margin: 15px 40px;
+  padding: 10px;
+}
+
+.now-weather-img {
+  width: 85%;
+  max-width: 250px;
+}
+
+.units {
+  position: relative;
+  top: -30px;
+}
+
+#celcius-link,
+#fahrenheit-link {
+  font-size: 25px;
+}
+
+/* WEATHER STATS SECTION */
+.weather-stats {
+  background-color: #6c80af;
+  border-radius: 30px;
+  padding: 15px 25px;
+  margin: 20px 40px;
+}
+
+.area-stats {
+  padding-top: 15px;
+}
+
+.fa-solid {
+  color: rgb(14, 23, 87);
+}
+
+/* WEATHER FORECAST 6 DAY */
+.weather-forecast {
+  margin: 5px 20px;
+}
+.day-card {
+  background-color: #7f94c5;
+  border-radius: 25px;
+  padding-top: 25px;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+footer,
+footer > a {
+  text-align: center;
+  margin: 30px 0;
+  color: white;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+}
