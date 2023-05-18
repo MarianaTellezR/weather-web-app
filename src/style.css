@@ -117,7 +117,14 @@ header {
 #celcius-link,
 #fahrenheit-link {
   font-size: 25px;
-  color: rgb(180, 206, 255);
+  
+  text-decoration: none;
+}
+
+/*color: rgb(180, 206, 255);*/
+.active {
+  color: white;
+  cursor: default;
 }
 
 /* WEATHER STATS SECTION */

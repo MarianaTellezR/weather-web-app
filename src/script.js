@@ -80,21 +80,27 @@ let units = "metric";
 function showWeather(response) {
   // City Name
   document.querySelector("h1").innerHTML = response.data.name;
+
   // Temperature
-  document.querySelector(".temperature").innerHTML = Math.round(
-    response.data.main.temp
-  );
+  celciusTemperature = response.data.main.temp;
+
+  document.querySelector(".temperature").innerHTML =
+    Math.round(celciusTemperature);
+
   // Description weather
   document.querySelector("#description-weather").innerHTML =
     response.data.weather[0].main;
+
   // Wind
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
   );
+
   // Visibility
   document.querySelector("#visibility").innerHTML = Math.round(
     response.data.visibility / 1000
   );
+
   // Humidity
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
 
@@ -137,27 +143,38 @@ function getPosition(event) {
 let buttonCurrentPosition = document.querySelector("#current-location");
 buttonCurrentPosition.addEventListener("click", getPosition);
 
+/* CONVERSION FAHRENHEIT CELCIUS */
+
+function showFahrenheitTemperature(event) {
+  event.preventDefault();
+
+  //Remove active class from celcius link
+  celciusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+
+  let temperatureElement = document.querySelector("#temperature");
+  let fahrenheitTemperature = (celciusTemperature * 9) / 5 + 32;
+
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+function showCelciusTemperature(event) {
+  event.preventDefault();
+
+  celciusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(celciusTemperature);
+}
+
+let celciusTemperature = null;
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", showFahrenheitTemperature);
+
+let celciusLink = document.querySelector("#celcius-link");
+celciusLink.addEventListener("click", showCelciusTemperature);
+
 // DEFAULT CITY
 searchCity("San Francisco");
-
-/* Display a fake temperature (i.e 17) in Celsius and add a link to
-   convert it to Fahrenheit. When clicking on it, it should convert
-   the temperature to Fahrenheit.
-   When clicking on Celsius, it should convert it back to Celsius.
-*/
-
-let celciusDegrees = document.querySelector("#celcius-link");
-
-celciusDegrees.addEventListener("click", function changeToCelcius(event) {
-  event.preventDefault();
-  let temperatureData = document.querySelector("#temperature");
-  temperatureData.innerHTML = 19;
-});
-
-let fahrenheitDegrees = document.querySelector("#fahrenheit-link");
-
-fahrenheitDegrees.addEventListener("click", function changeToFahrenheit(event) {
-  event.preventDefault();
-  let temperatureData = document.querySelector("#temperature");
-  temperatureData.innerHTML = 66;
-});
