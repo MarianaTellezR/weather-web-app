@@ -117,14 +117,27 @@ header {
 #celcius-link,
 #fahrenheit-link {
   font-size: 25px;
-  
+  color: white;
+
   text-decoration: none;
 }
 
-/*color: rgb(180, 206, 255);*/
+/*color: rgb(180, 206, 255);
 .active {
   color: white;
   cursor: default;
+}
+*/
+
+.inactive {
+  background-color: #8aa3d1;
+  border-radius: 14px;
+  padding: 4px 8px;
+  cursor: pointer;
+  transition: all 150ms ease-in;
+}
+.inactive:hover {
+  background-color: #5e7496;
 }
 
 /* WEATHER STATS SECTION */
@@ -205,4 +218,15 @@ footer > a {
 .light .day-card {
   background-color: #b8ddfd;
   color: rgb(1, 63, 104);
+}
+
+.light .inactive {
+  background-color: #8ccbf5;
+  border-radius: 14px;
+  padding: 4px 8px;
+  cursor: pointer;
+  transition: all 150ms ease-in;
+}
+.light .inactive:hover {
+  background-color: #138ae6;
 }
