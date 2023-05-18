@@ -117,6 +117,7 @@ header {
 #celcius-link,
 #fahrenheit-link {
   font-size: 25px;
+  color: rgb(180, 206, 255);
 }
 
 /* WEATHER STATS SECTION */
@@ -161,4 +162,40 @@ footer > a {
 .personal-info {
   font-weight: bolder;
   font-size: 15px;
+}
+
+/*MORNING THEME - LIGHT THEME*/
+
+.light {
+  background: radial-gradient(rgb(63, 211, 250) 0%, rgb(26, 141, 246) 100%);
+}
+
+.light .principal-container {
+  background: linear-gradient(
+    150deg,
+    rgb(45, 186, 230) 0%,
+    rgb(11, 125, 230) 100%
+  );
+}
+
+.light #search,
+.light .current-location {
+  background: linear-gradient(135deg, #f5f7fa 0%, #b9e5ff 100%);
+  color: rgb(2, 96, 139);
+}
+
+.light #search:hover,
+.light .current-location:hover {
+  background: linear-gradient(135deg, #84d8ff 0%, #bdd3f8 100%);
+  color: white;
+}
+
+.light .weather-stats {
+  background-color: #b8ddfd;
+  color: rgb(1, 63, 104);
+}
+
+.light .day-card {
+  background-color: #b8ddfd;
+  color: rgb(1, 63, 104);
 }

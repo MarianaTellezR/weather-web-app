@@ -1,6 +1,7 @@
 console.log("Mariana Tellez was here");
 
 // Display the current date and time using JavaScript: Tuesday 16:00
+
 function formatDate(date) {
   let days = [
     "Sunday",
@@ -43,6 +44,23 @@ function formatDate(date) {
     min = `0${min}`;
   }
 
+  // CHANGING THEME DEPENDING ON THE HOUR (MORNING AND NIGHT)
+
+  let horita = hour;
+  console.log(horita);
+
+  let body = document.querySelector("body");
+
+  if (horita >= 8 && horita <= 18) {
+    console.log("morning"); //morning
+    body.classList.add("light");
+  } else {
+    console.log("night");
+    body.classList.remove("light");
+  }
+
+  //Showing current date with return
+
   return `${day} ${hour}:${min}<br>${month} ${dateNum}, ${year} `;
 }
 
@@ -55,6 +73,7 @@ h2.innerHTML = formatDate(currentTime);
 // Add a search engine, when searching for a city (i.e. Paris),
 // display the city name on the page and current temperature
 //after the user submits the form.
+
 let apiKey = "d1b73b9f0676715bbd0cc493b72eb781";
 let units = "metric";
 
