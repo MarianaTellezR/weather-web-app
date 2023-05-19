@@ -1,5 +1,3 @@
-console.log("Mariana Tellez was here");
-
 // Display the current date and time using JavaScript: Tuesday 16:00
 
 function formatDate(date) {
@@ -47,15 +45,14 @@ function formatDate(date) {
   // CHANGING THEME DEPENDING ON THE HOUR (MORNING AND NIGHT)
 
   let horita = hour;
-  console.log(horita);
 
   let body = document.querySelector("body");
 
   if (horita >= 8 && horita <= 18) {
-    console.log("morning"); //morning
+    //morning
     body.classList.add("light");
   } else {
-    console.log("night");
+    //night
     body.classList.remove("light");
   }
 
@@ -76,6 +73,13 @@ h2.innerHTML = formatDate(currentTime);
 
 let apiKey = "d1b73b9f0676715bbd0cc493b72eb781";
 let units = "metric";
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=${units}`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
+}
 
 function showWeather(response) {
   // City Name
@@ -104,12 +108,16 @@ function showWeather(response) {
   // Humidity
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
 
+  // Main ICON weather
   let iconElement = document.querySelector("#icon-weather");
   iconElement.setAttribute(
     "src",
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].main);
+
+  // WEATHER FORECAST 6 DAYS
+  getForecast(response.data.coord);
 }
 
 function searchCity(city) {
@@ -177,7 +185,8 @@ celciusLink.addEventListener("click", showCelciusTemperature);
 
 // DISPLAY 6 DAY WEATHER FORECAST
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data);
   let forecastElement = document.querySelector("#forecast");
 
   let days = ["Friday", "Saturday", "Sunday", "Monday", "Tuesday", "Wednesday"];
@@ -206,9 +215,7 @@ function displayForecast() {
   forecastHTML = forecastHTML + `</div>`;
 
   forecastElement.innerHTML = forecastHTML;
-  console.log(forecastHTML);
 }
 
 // DEFAULT CITY
 searchCity("San Francisco");
-displayForecast();
