@@ -106,7 +106,7 @@ header {
 
 .now-weather-img {
   width: 85%;
-  max-width: 250px;
+  max-width: 215px;
 }
 
 .units {
@@ -150,10 +150,6 @@ header {
 
 .area-stats {
   padding-top: 15px;
-}
-
-.fa-solid {
-  color: rgb(14, 23, 87);
 }
 
 /* WEATHER FORECAST 6 DAY */
@@ -219,9 +215,9 @@ footer > a {
   background: linear-gradient(135deg, #84d8ff 0%, #bdd3f8 100%);
   color: white;
 }
-
+/*#b8ddfd;*/
 .light .weather-stats {
-  background-color: #b8ddfd;
+  background-color: #b0d8f8;
   color: rgb(1, 63, 104);
 }
 

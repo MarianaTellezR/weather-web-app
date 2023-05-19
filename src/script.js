@@ -110,10 +110,7 @@ function showWeather(response) {
 
   // Main ICON weather
   let iconElement = document.querySelector("#icon-weather");
-  iconElement.setAttribute(
-    "src",
-    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-  );
+  iconElement.setAttribute("src", `img/${response.data.weather[0].icon}.png`);
   iconElement.setAttribute("alt", response.data.weather[0].main);
 
   // WEATHER FORECAST 6 DAYS
@@ -216,9 +213,7 @@ function displayForecast(response) {
       <div class="col-sm-12 col-md-4 col-lg-2">
         <div class="day-card">
           <h5>${formatDay(forecastDay.dt)}</h5>
-          <img src="https://openweathermap.org/img/wn/${
-            forecastDay.weather[0].icon
-          }@2x.png" alt="Weather 1" />
+          <img src="img/${forecastDay.weather[0].icon}.png" alt="Weather" />
           <p>
             <span class="weather-forecast-temperature-max">${Math.round(
               forecastDay.temp.max
