@@ -148,9 +148,6 @@ buttonCurrentPosition.addEventListener("click", getPosition);
 function showFahrenheitTemperature(event) {
   event.preventDefault();
 
-  //Remove active class from celcius link
-  //celciusLink.classList.remove("active");
-  //fahrenheitLink.classList.add("active");
   fahrenheitLink.classList.remove("inactive");
   celciusLink.classList.add("inactive");
 
@@ -162,9 +159,6 @@ function showFahrenheitTemperature(event) {
 
 function showCelciusTemperature(event) {
   event.preventDefault();
-
-  //celciusLink.classList.add("active");
-  //fahrenheitLink.classList.remove("active");
 
   celciusLink.classList.remove("inactive");
   fahrenheitLink.classList.add("inactive");
@@ -181,5 +175,40 @@ fahrenheitLink.addEventListener("click", showFahrenheitTemperature);
 let celciusLink = document.querySelector("#celcius-link");
 celciusLink.addEventListener("click", showCelciusTemperature);
 
+// DISPLAY 6 DAY WEATHER FORECAST
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let days = ["Friday", "Saturday", "Sunday", "Monday", "Tuesday", "Wednesday"];
+
+  let forecastHTML = `<div class="container text-center">`;
+  forecastHTML = forecastHTML + `<div class="row">`;
+
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+      <div class="col-sm-12 col-md-4 col-lg-2">
+        <div class="day-card">
+          <h5>${day}</h5>
+          <img src="img/cloudyrainysunny.png" alt="Weather 1" />
+          <p>
+            <span class="weather-forecast-temperature-max">6</span>°
+            <span class="weather-forecast-temperature-min">24</span>°
+          </p>
+        </div>
+      </div>
+      `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastHTML = forecastHTML + `</div>`;
+
+  forecastElement.innerHTML = forecastHTML;
+  console.log(forecastHTML);
+}
+
 // DEFAULT CITY
 searchCity("San Francisco");
+displayForecast();
