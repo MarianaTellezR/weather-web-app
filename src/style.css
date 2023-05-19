@@ -160,6 +160,16 @@ header {
 .weather-forecast {
   margin: 5px 20px;
 }
+
+.weather-forecast-temperature-max {
+  font-weight: 550;
+}
+
+.weather-forecast-temperature-min {
+  font-weight: 300;
+  opacity: 0.7;
+}
+
 .day-card {
   background-color: #7f94c5;
   border-radius: 25px;
