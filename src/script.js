@@ -74,6 +74,60 @@ h2.innerHTML = formatDate(currentTime);
 let apiKey = "d1b73b9f0676715bbd0cc493b72eb781";
 let units = "metric";
 
+// DISPLAY 6 DAY WEATHER FORECAST
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+
+  return days[day];
+}
+
+function displayForecast(response) {
+  let forecast = response.data.daily;
+
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="container text-center">`;
+  forecastHTML = forecastHTML + `<div class="row">`;
+
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
+      <div class="col-sm-12 col-md-4 col-lg-2">
+        <div class="day-card">
+          <h5>${formatDay(forecastDay.dt)}</h5>
+          <img src="img/${forecastDay.weather[0].icon}.png" alt="Weather" />
+          <p>
+            <span class="weather-forecast-temperature-max">${Math.round(
+              forecastDay.temp.max
+            )}°</span>
+            <span class="weather-forecast-temperature-min">${Math.round(
+              forecastDay.temp.min
+            )}°</span>
+          </p>
+        </div>
+      </div>
+      `;
+    }
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastHTML = forecastHTML + `</div>`;
+
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function getForecast(coordinates) {
   console.log(coordinates);
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=${units}`;
@@ -179,60 +233,6 @@ fahrenheitLink.addEventListener("click", showFahrenheitTemperature);
 
 let celciusLink = document.querySelector("#celcius-link");
 celciusLink.addEventListener("click", showCelciusTemperature);
-
-// DISPLAY 6 DAY WEATHER FORECAST
-function formatDay(timestamp) {
-  let date = new Date(timestamp * 1000);
-  let day = date.getDay();
-  let days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-
-  return days[day];
-}
-
-function displayForecast(response) {
-  let forecast = response.data.daily;
-
-  let forecastElement = document.querySelector("#forecast");
-
-  let forecastHTML = `<div class="container text-center">`;
-  forecastHTML = forecastHTML + `<div class="row">`;
-
-  forecast.forEach(function (forecastDay, index) {
-    if (index < 6) {
-      forecastHTML =
-        forecastHTML +
-        `
-      <div class="col-sm-12 col-md-4 col-lg-2">
-        <div class="day-card">
-          <h5>${formatDay(forecastDay.dt)}</h5>
-          <img src="img/${forecastDay.weather[0].icon}.png" alt="Weather" />
-          <p>
-            <span class="weather-forecast-temperature-max">${Math.round(
-              forecastDay.temp.max
-            )}°</span>
-            <span class="weather-forecast-temperature-min">${Math.round(
-              forecastDay.temp.min
-            )}°</span>
-          </p>
-        </div>
-      </div>
-      `;
-    }
-  });
-
-  forecastHTML = forecastHTML + `</div>`;
-  forecastHTML = forecastHTML + `</div>`;
-
-  forecastElement.innerHTML = forecastHTML;
-}
 
 // DEFAULT CITY
 searchCity("San Francisco");
