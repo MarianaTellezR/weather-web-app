@@ -236,3 +236,29 @@ footer > a {
 .light .inactive:hover {
   background-color: #138ae6;
 }
+
+@media (max-width: 450px) {
+  .principal-container {
+    width: 90%;
+  }
+  .temperature {
+    font-size: 30px;
+    font-weight: 300;
+  }
+  .units {
+    position: relative;
+    top: -10px;
+  }
+  #celcius-link,
+  #fahrenheit-link {
+    font-size: 15px;
+  }
+  footer,
+  footer > a {
+    font-size: 12px;
+    font-weight: 200;
+  }
+  .personal-info {
+    font-size: 13px;
+  }
+}
